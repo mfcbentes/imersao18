@@ -10,6 +10,7 @@ var (
 	ErrEventDateFuture   = errors.New("event date must be in the future")
 	ErrEventCapacityZero = errors.New("event capacity must be greater than zero")
 	ErrEventPriceZero    = errors.New("event price must be greater than zero")
+	ErrEventNotFound     = errors.New("event not found")
 )
 
 type Rating string
@@ -60,5 +61,12 @@ func (e Event) Validate() error {
 
 func (e *Event) AddSpot(name string) (*Spot, error) {
 
-	return nil, nil
+	spot, err := NewSpot(e, name)
+	if err != nil {
+		return nil, err
+	}
+
+	e.Spots = append(e.Spots, *spot)
+
+	return spot, nil
 }
