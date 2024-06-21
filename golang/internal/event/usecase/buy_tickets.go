@@ -6,11 +6,11 @@ import (
 )
 
 type BuyTicketsInputDTO struct {
-	EventID    string    `json:"event_id"`
-	Spots      []SpotDTO `json:"spots"`
-	TicketType string    `json:"ticket_type"`
-	CardHash   string    `json:"card_hash"`
-	Email      string    `json:"email"`
+	EventID    string   `json:"event_id"`
+	Spots      []string `json:"spots"`
+	TicketType string   `json:"ticket_type"`
+	CardHash   string   `json:"card_hash"`
+	Email      string   `json:"email"`
 }
 
 type BuyTicketsOutputDTO struct {
